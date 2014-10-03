@@ -237,11 +237,32 @@ class HebrewDate < Delegator
     Date.new(@year, @month, @date)
   end
 
-  # Return a String of the Hebrew date, according to Date::DATE_FORMATS
+  # Return a String representation of the Hebrew date
+  # If ActiveSupport is present, formats the date according to Date::DATE_FORMATS, like the Date class.
+  # @param formatter [Symbol] Which formatter to use from Date::DATE_FORMATS, if that Hash is defined.
   # @return [String]
-  def to_s
-    Date.new(hebrew_year, hebrew_month, hebrew_date).to_s
+  def to_s(formatter=:default)
+    # Use the default date format, but replace the Gregorian variables with their Hebrew counterparts. If no value
+    # is set in Date::DATE_FORMATS (a hash that ActiveSupport provides) for `formatter`, use 'YYYY-MM-DD'
+    f = if date_format_exists?(formatter)
+          Date::DATE_FORMATS[formatter].gsub('%', '*')
+        else
+          '*Y-*m-*d'
+        end
+
+    strftime(f)
   end
+
+  def date_format_exists?(formatter)
+    begin
+      Date::DATE_FORMATS[formatter]
+    rescue NameError
+      # Means ActiveSupport isn't loaded, so just return false. For some reason `defined?(Date::DATE_FORMATS)` wasn't
+      # returning true when it should have, so that's why we're doing it this way.
+      false
+    end
+  end
+  private :date_format_exists?
 
   # Move forward one day.
   # @return [HebrewDate] the same HebrewDate object again, for chaining.

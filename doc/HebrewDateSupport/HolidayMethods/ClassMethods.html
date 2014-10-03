@@ -368,7 +368,7 @@
     <span class='kw'>when</span> <span class='symbol'>:PESACH_SHENI</span>
       <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new_from_hebrew'>new_from_hebrew</span><span class='lparen'>(</span><span class='id identifier rubyid_year'>year</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>15</span><span class='rparen'>)</span>
     <span class='kw'>when</span> <span class='symbol'>:YOM_HAZIKARON</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_holiday'>from_holiday</span><span class='lparen'>(</span><span class='symbol'>:YOM_HAATZMAUT</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_back'>back</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_holiday'>from_holiday</span><span class='lparen'>(</span><span class='symbol'>:YOM_HAATZMAUT</span><span class='comma'>,</span> <span class='id identifier rubyid_year'>year</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_back'>back</span>
     <span class='kw'>when</span> <span class='symbol'>:YOM_HAATZMAUT</span>
       <span class='id identifier rubyid_date'>date</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new_from_hebrew'>new_from_hebrew</span><span class='lparen'>(</span><span class='id identifier rubyid_year'>year</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>5</span><span class='rparen'>)</span>
       <span class='comment'># Friday or Shabbat - move back to Thursday
@@ -457,7 +457,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Oct  3 10:45:16 2014 by
+  Generated on Fri Oct  3 12:55:29 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.3 (ruby-2.1.2).
 </div>
