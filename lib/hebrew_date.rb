@@ -238,6 +238,7 @@ class HebrewDate < Delegator
   end
 
   # Return a String of the Hebrew date, according to Date::DATE_FORMATS
+  # @return [String]
   def to_s
     Date.new(hebrew_year, hebrew_month, hebrew_date).to_s
   end
