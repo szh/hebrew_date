@@ -65,8 +65,7 @@
 <h1 id="label-HebrewDate">HebrewDate</h1>
 
 <p><code>hebrew_date</code> is a library designed to provide information about
-the Jewish
-calendar. This includes dates, holidays, and parsha of the week.</p>
+the Jewish calendar. This includes dates, holidays, and parsha of the week.</p>
 <!---
 `hebrew_date` depends on the [ruby-sun-times](https://github.com/joeyates/ruby-sun-times)
 gem.
@@ -93,10 +92,8 @@ href="http://rawgithub.com/dorner/hebrew_date/master/doc/index.html">here</a>.</
 <h1 id="label-Printing">Printing</h1>
 
 <p>HebrewDate also responds to <code>strftime</code>, but provides a number of
-additional
-flags for printing Hebrew dates. These are identical to the
-normal flags
-except that they start with * instead of %:</p>
+additional flags for printing Hebrew dates. These are identical to the
+normal flags except that they start with * instead of %:</p>
 <ul><li>
 <p><code>*Y</code> - Hebrew year</p>
 </li><li>
@@ -123,20 +120,22 @@ except that they start with * instead of %:</p>
 <p><code>*e</code> - Hebrew day of month, blank-padded</p>
 </li></ul>
 
+<p>There is an additional flag added which is of simple utility:</p>
+<ul><li>
+<p><code>%.b</code> - Gregorian day of month, followed by a period (.),
+<em>except</em> for May, which doesn&#39;t need one and is incorrect.</p>
+</li></ul>
+
 <h1 id="label-Parsha">Parsha</h1>
 
 <p>You can get the parsha of the current day by calling the
-<code>parsha</code> method.
-This will only return a value if it is on
-Shabbat. By default the parsha
-will have &quot;special&quot; values
-appended to it (e.g. the special Parshiyot,
-Shekalim, Zachor, Parah and
-Hachodesh), which can optionally be suppressed.</p>
+<code>parsha</code> method. This will only return a value if it is on
+Shabbat. By default the parsha will have “special” values appended to it
+(e.g. the special Parshiyot, Shekalim, Zachor, Parah and Hachodesh), which
+can optionally be suppressed.</p>
 
 <p>By default HebrewDate will use the “chutz la&#39;aretz” parsha scheme (i.e.
-assuming
-two-day Yom Tov). You can use the Israeli scheme by calling</p>
+assuming two-day Yom Tov). You can use the Israeli scheme by calling</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>HebrewDate</span><span class='period'>.</span><span class='id identifier rubyid_israeli'>israeli</span> <span class='op'>=</span> <span class='kw'>true</span></code></pre>
 
@@ -144,17 +143,14 @@ two-day Yom Tov). You can use the Israeli scheme by calling</p>
 
 <h1 id="label-Holiday">Holiday</h1>
 
-<p>If the current date is a Jewish holiday (including Erev Yom Tov and
-the
-&quot;modern&quot; holidays of Yom Ha&#39;atzmaut, Yom Hazikaron and
-Yom Yerushalayim) you
-can retrieve those as strings via the
+<p>If the current date is a Jewish holiday (including Erev Yom Tov and the
+“modern” holidays of Yom Ha&#39;atzmaut, Yom Hazikaron and Yom
+Yerushalayim) you can retrieve those as strings via the
 <code>holiday</code> method.</p>
 
-<p>Month names, holidays and parshiyot all will be in Sephardic /
-Mizrachi
-accents by default. You can change this to Ashkenazi pronunciation
-by calling</p>
+<p>Month names, holidays and parshiyot all will be in Sephardic / Mizrachi
+accents by default. You can change this to Ashkenazi pronunciation by
+calling</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>HebrewDate</span><span class='period'>.</span><span class='id identifier rubyid_ashkenazi'>ashkenazi</span> <span class='op'>=</span> <span class='kw'>true</span></code></pre>
 
@@ -164,9 +160,9 @@ by calling</p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jan 27 11:49:54 2014 by
+  Generated on Fri Oct  3 10:40:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-2.0.0).
+  0.8.7.3 (ruby-2.1.2).
 </div>
 
   </body>
