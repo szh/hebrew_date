@@ -12,6 +12,7 @@ require_relative 'support/parshiot.rb'
 # simultaneously. Note that you may call any Date methods on this class
 # and it should respond accordingly.
 class HebrewDate < Delegator
+  include Comparable
   include HebrewDateSupport::ParshaMethods
   include HebrewDateSupport::HolidayMethods
   extend HebrewDateSupport::HolidayMethods::ClassMethods
@@ -313,6 +314,24 @@ class HebrewDate < Delegator
   # @return [HebrewDate]
   def next
     self + 1
+  end
+
+  # This does not modify the current date, but creates a new one.
+  # @return [HebrewDate]
+  def next_hebrew_month
+    current_month = self.hebrew_month
+    date = self.clone
+    date.forward while date.hebrew_month == current_month
+    date
+  end
+
+  # This does not modify the current date, but creates a new one.
+  # @return [HebrewDate]
+  def prev_hebrew_month
+    current_month = self.hebrew_month
+    date = self.clone
+    date.back while date.hebrew_month == current_month
+    date
   end
 
   alias_method :succ, :next
